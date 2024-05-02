@@ -5,9 +5,141 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding: 30px 20px 10px;
+  background: linear-gradient(to right, rgba(103,93,90,0.6), rgba(103,93,90,0.8), rgba(103,93,90,1));
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* HomeHeader */
+.checklist-header {
+  font-family: Arial, sans-serif;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.checklist-header .text {
+  width: 80%;
+}
+
+.checklist-header .text h3 {
+  font-size: 24px;
+  margin: 0px;
+  font-weight: 500;
+}
+
+.checklist-header .text h5 {
+  font-size: 14px;
+  margin: 15px 0 0; /* Top: 15px; Rest: 0px */
+  font-weight: 500;
+}
+
+/* Automatically 20% as .text is 80% */
+.checklist-header .notification
+{
+  padding: 5px 0 0;
+}
+
+/****************
+*
+* CARD
+*
+*****************/
+
+.home-card:nth-of-type(1) {
+  background-color: #393333;
+}
+
+.home-card:nth-of-type(2) {
+  background-color: #ffffff;
+}
+
+.home-card {
+  padding: 20px;
+  margin-bottom: 20px;
+  color: #ffffff;
+  border-radius: 15px;
+}
+
+.home-card .card-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.home-card .card-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.home-card .card-subtitle {
+  font-size: 12px;
+}
+
+.home-card .card-text {
+  color: #adadad;
+  margin: 15px 0 0;
+}
+
+.home-card .card-number {
+  font-size: 25px;
+  margin: 0;
+  font-weight: 700;
+}
+
+.home-card .card-row .card-button {
+  align-content: center;
+}
+
+.home-card .card-row .card-button button {
+  border-radius: 50%;
+  width: 40px;
+  border: none;
+  height: 40px;
+  color: #ffffff;
+}
+
+.home-card .card-row .card-button.dark button {
+  background: linear-gradient(135deg, #ffffff, #706b6b, #4d4848, #706b6b);
+}
+
+/****************
+*
+* FOOTER BUTTONS
+*
+*****************/
+
+.footer-buttons {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  width: 100%;
+}
+
+.footer-buttons nav {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px 0;
+}
+
+.footer-button {
+  font-size: 12px;
+  color: #888888;
+}
+
+.footer-button.active {
+  font-weight: 700;
+  color: #000000;
+}
+
+.footer-button svg {
+  display: block;
+  margin: 0 auto;
+  font-size: 14px;
+  font-weight: 700;
 }
