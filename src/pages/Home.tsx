@@ -1,5 +1,5 @@
 import HomeHeader from "../components/HomeHeader";
-import Button from 'react-bootstrap/button';
+import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import { ItemCardProps } from "../utils/interfaces";
