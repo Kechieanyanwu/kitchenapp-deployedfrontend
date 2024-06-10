@@ -109,6 +109,50 @@ code {
 
 /****************
 *
+* PAGE HEADERS
+*
+*****************/
+.page-header {
+  font-family: Arial, sans-serif;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+/* Automatically 20% as .text is 80% */
+.page-header .text {
+  width: 100%;
+  text-align: center;
+}
+
+.page-header .text h3 {
+  font-size: 24px;
+  margin: 0px;
+  font-weight: 500;
+}
+
+.page-header .text h5 {
+  font-size: 14px;
+  margin: 15px 0 0; /* Top: 15px; Rest: 0px */
+  font-weight: 500;
+}
+
+.page-header .back-button
+{
+  padding: 10px 0 0;
+}
+
+/* page curved section */
+.curved-section {
+  background: #fff; /* White background for the content area */
+  width: 100%; /* Set the width as required */
+  padding: 0px;
+  border-radius: 25px 25px 0 0; /* Curves the top left and top right */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: adds shadow for depth */
+}
+
+/****************
+*
 * FOOTER BUTTONS
 *
 *****************/
@@ -142,4 +186,26 @@ code {
   margin: 0 auto;
   font-size: 14px;
   font-weight: 700;
+}
+
+
+/****************
+*
+* ADD ITEM BUTTONS
+*
+*****************/
+
+
+.addItemButton {
+  background-color: #6E5641; /* The brown color seen in the mockup */
+  color: white; 
+  padding: 10px 20px; 
+  border-radius: 5px; 
+  text-align: center;
+  cursor: pointer;
+  margin: 20px 0; /* Adjust the margin as needed */
+}
+
+.addItemButton h5 {
+  margin: 0; /* Remove default margin */
 }

@@ -1,40 +1,43 @@
-import { House, ListCheck, List } from "react-bootstrap-icons";
+import { useNavigate, useLocation } from 'react-router-dom';
+import { House, ListCheck, List, Gear } from "react-bootstrap-icons";
 
 
 export default function NavBar() {
-    const doSomething = () => { };
+    const navigate = useNavigate();
+    const location = useLocation();
+
     return (
         <nav>
             {/* Navigation links */}
             <div
-                className='footer-button active'
-                onClick={() => doSomething()}
+                className = {`footer-button ${location.pathname === '/' ? 'active' : ''}`}
+                onClick={() => navigate("/")}
             >
                 <House></House>
                 <div>Home</div>
             </div>
 
             <div
-                className='footer-button'
-                onClick={() => doSomething()}
+                className = {`footer-button ${location.pathname === '/checklist' ? 'active' : ''}`}
+                onClick={() => navigate("/checklist")}
             >
                 <ListCheck></ListCheck>
                 <div>Checklist</div>
             </div>
 
             <div
-                className='footer-button'
-                onClick={() => doSomething()}
+                className = {`footer-button ${location.pathname === '/inventory' ? 'active' : ''}`}
+                onClick={() => window.alert("WIP Inventory!")}
             >
                 <List></List>
                 <div>Inventory</div>
             </div>
 
             <div
-                className='footer-button'
-                onClick={() => doSomething()}
+                className = {`footer-button ${location.pathname === '/settings' ? 'active' : ''}`}
+                onClick={() => window.alert("WIP Settings!")}
             >
-                <House></House>
+                <Gear></Gear>
                 <div>Settings</div>
             </div>
         </nav>
