@@ -39,12 +39,12 @@ function ChecklistTable() { //on first render, do I get this passed as a prop?
           <td align="center">{item.item_name}</td>
           <td align="center">{item.quantity}</td>
           <td align="center">{item.category_id}</td>
-          <CheckedButton handleCheck={checkItem} />
+          < CheckedButton handleCheck={checkItem} />
           {/* could either do checkItem or just pass a setter */}
         </tr>
       )
     })
-      //want to modify this to be a div with several spans, not just a table
+
     return (
       <table>
         <thead>

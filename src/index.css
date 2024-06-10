@@ -145,8 +145,14 @@ code {
 /* page curved section */
 .curved-section {
   background: #fff; /* White background for the content area */
-  width: 100%; /* Set the width as required */
-  padding: 0px;
+  width: 100%; 
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 750px;
+  margin: 10px 0px 0px;
+  padding: 10px 10px 30px;
+  box-sizing: border-box;
   border-radius: 25px 25px 0 0; /* Curves the top left and top right */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: adds shadow for depth */
 }
@@ -163,6 +169,8 @@ code {
   left: 0;
   background-color: #fff;
   width: 100%;
+  border-radius: 25px 25px 0 0; /* Curves the top left and top right */
+  box-shadow: 0 -5px 6px rgba(0, 0, 0, 0.1); /* Optional: adds shadow for depth */
 }
 
 .footer-buttons nav {
@@ -202,7 +210,11 @@ code {
   padding: 10px 20px; 
   border-radius: 5px; 
   text-align: center;
-  cursor: pointer;
+  position: fixed;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
   margin: 20px 0; /* Adjust the margin as needed */
 }
 
