@@ -11,6 +11,6 @@ export default function PageHeader({title, subtitle}: PageHeaderProps) {
                 <h3>{title}</h3>
                 <h5>{subtitle}</h5>
             </div>
-    </div>
+        </div>
     )
 }

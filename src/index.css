@@ -143,18 +143,19 @@ code {
 }
 
 /* page curved section */
+
 .curved-section {
-  background: #fff; /* White background for the content area */
+  background: #fff;
   width: 100%; 
-  position: fixed;
+  position: absolute;
   left: 0;
-  bottom: 10;
-  height: 750px;
-  /* margin: 100px 0px 0px; */
+  top: 100px;
+  bottom: 0;
+  height: 90%;
   padding: 30px 20px 30px;
   box-sizing: border-box;
-  border-radius: 25px 25px 0 0; /* Curves the top left and top right */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: adds shadow for depth */
+  border-radius: 25px 25px 0 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /****************
@@ -244,7 +245,7 @@ table {
   box-shadow: 0 0 0 1px #d6d5d5; /* this draws the table border  */ 
   text-align: center;
 	vertical-align: middle;
-  /* width: 95%; */
+  width: 100%;
 }
 
 th, td {
@@ -271,3 +272,4 @@ thead {
   width: 50%;
   border-top-left-radius: 10px;
 }
+
