@@ -1,9 +1,9 @@
-import { useState } from "react"
-import NavBar from "../components/NavBar"
-import PageHeader from "../components/PageHeader"
-import { ChecklistObject } from "../utils/interfaces"
-import { Form } from "react-bootstrap"
-import AddItemButton from "../components/AddItemButton"
+import { useState } from "react";
+import NavBar from "../components/NavBar";
+import PageHeader from "../components/PageHeader";
+import { ChecklistObject } from "../utils/interfaces";
+import { Form } from "react-bootstrap";
+import AddItemButton from "../components/AddItemButton";
 import { CheckSquare } from "react-bootstrap-icons";
 
 function CheckedButton(handleCheck: any) {
@@ -64,17 +64,16 @@ function ChecklistTable() { //on first render, do I get this passed as a prop?
 
 
 function Checklist() {
-    return <>
+    return <div>
         <PageHeader title={"Checklist"} subtitle={"Create a Checklist so you don't miss a thing!"} />
-        <div className="curved-section">
-          <ChecklistTable/> 
-          {/* I stopped here at custom styling for CSS tables. google this. */}
-          <AddItemButton />
+          <div className="curved-section">
+            <ChecklistTable/> 
+            <AddItemButton />
         </div>
         <div className="footer-buttons">
             <NavBar />
         </div>
-    </>
+    </div>
 }
 
 export default Checklist;
