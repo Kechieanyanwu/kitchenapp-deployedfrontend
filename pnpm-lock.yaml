@@ -3321,7 +3321,7 @@ packages:
       balanced-match: 1.0.2
     dev: false
 
-  /braces/3.0.2:
+  /braces/3.0.3: //updated
     resolution: {integrity: sha512-b8um+L1RzM3WDSzvhm6gIz1yfTbBt6YTlcEKAvsmqCZZFw46z626lVj9j1yEPW33H5H+lBQpZMP1k8l+78Ha0A==}
     engines: {node: '>=8'}
     dependencies:
