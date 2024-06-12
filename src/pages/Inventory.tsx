@@ -39,7 +39,7 @@ function InventoryTable() { //on first render, do I get this passed as a prop?
           <tr>
             <th className="itemNameCol">Item</th>
             <th>Quantity</th>
-            <th>Category</th>
+            <th className="categoryCol">Category</th>
           </tr>
         </thead>
         <tbody>
