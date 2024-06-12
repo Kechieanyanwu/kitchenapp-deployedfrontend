@@ -1,9 +1,9 @@
-import { useState } from "react"
-import NavBar from "../components/NavBar"
-import PageHeader from "../components/PageHeader"
-import { ChecklistObject } from "../utils/interfaces"
-import { Form } from "react-bootstrap"
-import AddItemButton from "../components/AddItemButton"
+import { useState } from "react";
+import NavBar from "../components/NavBar";
+import PageHeader from "../components/PageHeader";
+import { ChecklistObject } from "../utils/interfaces";
+import { Form } from "react-bootstrap";
+import AddItemButton from "../components/AddItemButton";
 import { CheckSquare } from "react-bootstrap-icons";
 
 function CheckedButton(handleCheck: any) {

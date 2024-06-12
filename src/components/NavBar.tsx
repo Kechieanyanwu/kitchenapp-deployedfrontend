@@ -27,7 +27,7 @@ export default function NavBar() {
 
             <div
                 className = {`footer-button ${location.pathname === '/inventory' ? 'active' : ''}`}
-                onClick={() => window.alert("WIP Inventory!")}
+                onClick={() => navigate("/inventory")}
             >
                 <List></List>
                 <div>Inventory</div>
