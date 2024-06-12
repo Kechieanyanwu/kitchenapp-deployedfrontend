@@ -36,9 +36,9 @@ function ChecklistTable() { //on first render, do I get this passed as a prop?
     const tableItems = items.map((item) => {
       return (
         <tr className="checklist-item" key={item.id}>
-          <td align="center">{item.item_name}</td>
-          <td align="center">{item.quantity}</td>
-          <td align="center">{item.category_id}</td>
+          <td>{item.item_name}</td>
+          <td>{item.quantity}</td>
+          <td>{item.category_id}</td>
           < CheckedButton handleCheck={checkItem} />
           {/* could either do checkItem or just pass a setter */}
         </tr>
@@ -46,13 +46,13 @@ function ChecklistTable() { //on first render, do I get this passed as a prop?
     })
 
     return (
-      <table>
+      <table className="checklistTable">
         <thead>
           <tr>
-            <th>Item</th>
+            <th className="itemNameCol">Item</th>
             <th>Quantity</th>
             <th>Category</th>
-            <th><CheckSquare></CheckSquare></th>
+            <th className="checkedCol"><CheckSquare></CheckSquare></th>
           </tr>
         </thead>
         <tbody>
@@ -67,8 +67,9 @@ function Checklist() {
     return <>
         <PageHeader title={"Checklist"} subtitle={"Create a Checklist so you don't miss a thing!"} />
         <div className="curved-section">
-            <ChecklistTable />
-            <AddItemButton />
+          <ChecklistTable/> 
+          {/* I stopped here at custom styling for CSS tables. google this. */}
+          <AddItemButton />
         </div>
         <div className="footer-buttons">
             <NavBar />
