@@ -109,6 +109,56 @@ code {
 
 /****************
 *
+* PAGE HEADERS
+*
+*****************/
+.page-header {
+  font-family: Arial, sans-serif;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+/* Automatically 20% as .text is 80% */
+.page-header .text {
+  width: 100%;
+  text-align: center;
+}
+
+.page-header .text h3 {
+  font-size: 24px;
+  margin: 0px;
+  font-weight: 500;
+}
+
+.page-header .text h5 {
+  font-size: 14px;
+  margin: 15px 0 0; /* Top: 15px; Rest: 0px */
+  font-weight: 500;
+}
+
+.page-header .back-button
+{
+  padding: 10px 0 0;
+}
+
+/* page curved section */
+.curved-section {
+  background: #fff; /* White background for the content area */
+  width: 100%; 
+  position: fixed;
+  left: 0;
+  bottom: 10;
+  height: 750px;
+  /* margin: 100px 0px 0px; */
+  padding: 30px 20px 30px;
+  box-sizing: border-box;
+  border-radius: 25px 25px 0 0; /* Curves the top left and top right */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: adds shadow for depth */
+}
+
+/****************
+*
 * FOOTER BUTTONS
 *
 *****************/
@@ -119,6 +169,8 @@ code {
   left: 0;
   background-color: #fff;
   width: 100%;
+  border-radius: 25px 25px 0 0; /* Curves the top left and top right */
+  box-shadow: 0 -5px 6px rgba(0, 0, 0, 0.1); /* Optional: adds shadow for depth */
 }
 
 .footer-buttons nav {
@@ -142,4 +194,80 @@ code {
   margin: 0 auto;
   font-size: 14px;
   font-weight: 700;
+}
+
+
+/****************
+*
+* ADD ITEM BUTTONS
+*
+*****************/
+
+
+.addItemButton {
+  background-color: #6E5641; /* The brown color seen in the mockup */
+  color: white; 
+  padding: 10px 20px; 
+  border-radius: 5px; 
+  text-align: center;
+  /* vertical-align: middle; */
+  position: fixed;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 30px;
+  margin: 20px 0; /* Adjust the margin as needed */
+}
+
+.addItemButton h5 {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  margin-top: -9px;
+}
+
+
+/****************
+*
+* TABLE FORMATTING
+*
+*****************/
+/* .checklistTable {
+  align-self: center;
+} */
+table {
+  border-collapse: collapse;
+  border-radius: 10px;
+  border-style: hidden; /* hide standard table (collapsed) border */
+  box-shadow: 0 0 0 1px #d6d5d5; /* this draws the table border  */ 
+  text-align: center;
+	vertical-align: middle;
+  /* width: 95%; */
+}
+
+th, td {
+  border-top: 1px solid #d6d5d5;
+  border-bottom: 1px solid #d6d5d5;
+  padding: 8px;
+}
+
+th {
+  border-right: .5px solid #d6d5d5 ;
+}
+
+thead {
+  background-color: #6E5641;
+  color: white;
+}
+
+.checkedCol {
+  width: 20%;
+  border-top-right-radius: 10px;
+}
+
+.itemNameCol {
+  width: 50%;
+  border-top-left-radius: 10px;
 }

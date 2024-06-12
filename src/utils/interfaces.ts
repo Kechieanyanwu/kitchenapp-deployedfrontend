@@ -25,3 +25,8 @@ export interface ItemCardProps {
   subtitle: string;
   itemNumber: number;
 }
+
+export interface PageHeaderProps {
+  title: string;
+  subtitle: string;
+}

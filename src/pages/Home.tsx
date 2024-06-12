@@ -17,7 +17,7 @@ function ItemCard({ itemName, subtitle, itemNumber }: ItemCardProps) {
                             <p className="card-number">{itemNumber}</p>
                         </div>
                         <div className="card-button dark">
-                            <Button variant="secondary">+</Button>
+                            <Button variant="secondary" onClick={() => { window.alert("Adding new item")}}>+</Button>
                         </div>
                     </div>
                 </Row>
