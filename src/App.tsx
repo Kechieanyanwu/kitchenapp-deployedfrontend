@@ -8,6 +8,7 @@ import Checklist from './pages/Checklist';
 import Inventory from './pages/Inventory';
 // import { Login } from './pages/Login';
 import Home from './pages/Home';
+import WelcomeScreen from './pages/WelcomeScreen';
 
 function App() {
 
@@ -16,7 +17,8 @@ function App() {
       <Routes>
          <Route path="/checklist" element={<Checklist />} />
         <Route path="/inventory" element={<Inventory />} />
-        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<WelcomeScreen />} />
       </Routes>
     </BrowserRouter>
   )
