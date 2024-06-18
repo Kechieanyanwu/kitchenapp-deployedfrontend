@@ -1,6 +1,6 @@
 import SignUpButton from "../components/SignUpButton";
 import LoginButton from "../components/LoginButton";
-export default function WelcomeScreen() {
+export default function Welcome() {
 return (
     <>
         <h1>CheckMate</h1>

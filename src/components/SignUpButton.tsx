@@ -1,5 +1,7 @@
 export default function SignUpButton() {
     return (
-        <button>Sign Up</button>
+        <div onClick={()=>{
+            //go to sign up page
+        }}>Sign Up</div>
     )
 }
