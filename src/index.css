@@ -70,11 +70,69 @@ code {
 }
 
 .signup-button p {
+  right: 0;
   position: absolute;
   top: 50%;
   left: 0;
-  right: 0;
   margin-top: -9px;
+}
+
+/* Sign up and Login Pages */
+.login-page, .signup-page  {
+  /* height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+}
+
+.login-form, .signup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.login-form form, .signup-form form {
+  width: 80%;
+}
+
+.login-blurb, .signup-blurb {
+  margin: 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* Custom Form formatting */
+.custom-input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 2px solid #706b6b;
+  box-sizing: border-box;
+}
+
+.submit-button {
+  background-color: #4d4848;
+  border-radius: 15px;
+  margin: 20px 0;
+  padding: 15px 0;
+  width: 70%;
+  font-size: 1em;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: none;
+  transition: background-color 0.3s ease;
 }
 
 /* HomeHeader */
