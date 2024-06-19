@@ -1,5 +1,9 @@
 export default function LoginButton() {
+
+    const handleClick = () => {
+        window.alert("WIP login button")
+    }
     return (
-        <div>Log In</div>
+        <div className="login-button" onClick={handleClick}> <p>Log In</p></div>
     )
 }
