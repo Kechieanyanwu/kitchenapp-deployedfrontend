@@ -1,7 +1,9 @@
 export default function SignUpButton() {
+    const handleClick = () => {
+        window.alert("WIP login button")
+    }
+
     return (
-        <div onClick={()=>{
-            //go to sign up page
-        }}>Sign Up</div>
+        <div className="signup-button" onClick={handleClick}><p>Sign Up</p></div>
     )
 }
