@@ -77,8 +77,8 @@ code {
   margin-top: -9px;
 }
 
-/* Login Page */
-.login-page {
+/* Sign up and Login Pages */
+.login-page, .signup-page  {
   /* height: 100vh; */
   display: flex;
   flex-direction: column;
@@ -87,17 +87,7 @@ code {
   color: white;
 }
 
-.custom-input {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 5px;
-  border: 2px solid #706b6b;
-  box-sizing: border-box;
-}
-
-
-.login-form {
+.login-form, .signup-form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -107,16 +97,27 @@ code {
   width: 100%;
 }
 
-.login-form form {
+.login-form form, .signup-form form {
   width: 80%;
 }
 
-.login-blurb {
+.login-blurb, .signup-blurb {
   margin: 30px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+
+/* Custom Form formatting */
+.custom-input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 2px solid #706b6b;
+  box-sizing: border-box;
 }
 
 .submit-button {
