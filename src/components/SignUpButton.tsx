@@ -1,6 +1,11 @@
+import { useNavigate } from 'react-router-dom';
+
 export default function SignUpButton() {
+    const navigate = useNavigate();
+
     const handleClick = () => {
-        window.alert("WIP login button")
+        window.alert("going to signup page  ")
+        navigate('/signup')
     }
 
     return (
