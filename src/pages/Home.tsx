@@ -29,8 +29,6 @@ function ItemCard({ itemName, subtitle, itemNumber }: ItemCardProps) {
 function CardColumn() {
     return (
         <>
-            {/* Props can be further extended to add text and background colour, and button actions */}
-            {/* For adding customisable styling, you can choose to use predefined classes or allow individual values to be passed */}
             <Row>
                 <ItemCard itemName="Checklist" subtitle="Add items so you don't forget anything!" itemNumber={0} />
             </Row>

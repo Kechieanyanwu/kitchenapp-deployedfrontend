@@ -8,10 +8,9 @@ export default function NavBar() {
 
     return (
         <nav>
-            {/* Navigation links */}
             <div
                 className = {`footer-button ${location.pathname === '/' ? 'active' : ''}`}
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/home")}
             >
                 <House></House>
                 <div>Home</div>

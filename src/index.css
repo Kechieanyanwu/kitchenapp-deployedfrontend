@@ -37,10 +37,6 @@ code {
 
 
 .checkMate-logo {
-  /* i think I'll just align everything to be centred in the page, instead of positioning. I can them move the heights and padding */
-  /* position: absolute;
-  left: 100px;
-  right: 50%; */
   color: #fff;
   width: 60px;
   height: auto;
