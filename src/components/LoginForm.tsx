@@ -23,7 +23,7 @@ export default function LoginForm() {
         setError(null); //clear previous errors
         
         try {
-            const response = await fetch('https://kitchen-app-backend-two.vercel.app/login', {
+            const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/login`, {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
