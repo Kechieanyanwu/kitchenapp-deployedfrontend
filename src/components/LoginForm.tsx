@@ -1,36 +1,62 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 import { Button, Form } from "react-bootstrap";
-
-interface FormData {
-    email: string;
-    password: string;
-}
+import { useNavigate } from 'react-router-dom';
+import { LoginFormData } from "../utils/interfaces";
 
 export default function LoginForm() {
-    const [formData, setformData] = useState<FormData>({
+    const [formData, setformData] = useState<LoginFormData>({
         email:"",
         password:"",
     });
 
+    const [error, setError] = useState<string | null>(null);
+
+    const navigate = useNavigate();
+    
     function handleChange(e: ChangeEvent<HTMLInputElement>) {
         const { name, value } = e.target;
         setformData({...formData, [name]: value })
     }
 
-    function handleSubmit(e: FormEvent) {
+    async function handleSubmit(e: FormEvent) {   
         e.preventDefault();
-        window.alert("submitted!");
+        setError(null); //clear previous errors
+        
+        try {
+            const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/login`, {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                localStorage.setItem('auth_token', data.auth_token);
+                console.log('Login successful:', data);
+                navigate('/home');
+            } else {
+                throw new Error('Network response was not ok');
+            }
+
+        } catch (error) {
+            console.error('There was a problem with the login request: ', error);
+            setError('Login failed. Please check your email and password');
+        }
+
+        // window.alert("submitted!");         
     }
 
     return (
         <div className="login-form">
             <Form onSubmit={handleSubmit}>
-                <Form.Group>
+                <Form.Group>    
                     <Form.Control 
                     className="custom-input" 
                     type="email" 
                     name="email" 
-                    value={formData.email} 
+                    value={formData.email}  
                     onChange={handleChange} 
                     placeholder="Email" />
                 </Form.Group>

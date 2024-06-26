@@ -1,15 +1,11 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 import { Button, Form } from "react-bootstrap";
-
-interface FormData {
-    username: string;
-    email: string;
-    password: string;
-    confirmPassword: string;
-}
+import { useNavigate } from 'react-router-dom';
+import { SignUpFormData } from "../utils/interfaces";
+import { NewUser } from "../utils/interfaces";
 
 export default function SignUpForm() {
-    const [formData, setformData] = useState<FormData>({
+    const [formData, setformData] = useState<SignUpFormData>({
         username:"",
         email:"",
         password:"",
@@ -17,14 +13,39 @@ export default function SignUpForm() {
 
     });
 
+    const [error, setError] = useState<string | null>(null);
+
+    const navigate = useNavigate();    
+
     function handleChange(e: ChangeEvent<HTMLInputElement>) {
         const { name, value } = e.target;
         setformData({...formData, [name]: value })
     }
 
-    function handleSubmit(e: FormEvent) {
+    async function handleSubmit(e: FormEvent) {
         e.preventDefault();
-        window.alert("submitted!");
+        // window.alert("submitted!");
+        setError(null); // clear previous errors
+
+        try {
+            const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/user/register`, {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                const newUser:NewUser = await response.json();
+                window.alert("Welcome, " + newUser.username)
+                navigate('/login');
+            }
+        } catch (error) {
+            console.error('There was a problem with the signup request: ', error);
+            setError('Sign up failed, please try again');
+        }
+
     }
 
     return (

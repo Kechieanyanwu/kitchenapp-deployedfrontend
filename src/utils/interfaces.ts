@@ -30,3 +30,20 @@ export interface PageHeaderProps {
   title: string;
   subtitle: string;
 }
+
+export interface LoginFormData {
+  email: string;
+  password: string;
+}
+
+export interface SignUpFormData {
+  username: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
+
+export interface NewUser {
+  username: string;
+  email: string;
+}
