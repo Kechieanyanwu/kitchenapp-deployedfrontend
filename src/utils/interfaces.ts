@@ -30,3 +30,8 @@ export interface PageHeaderProps {
   title: string;
   subtitle: string;
 }
+
+export interface FormData {
+  email: string;
+  password: string;
+}
