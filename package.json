@@ -18,7 +18,8 @@
     "web-vitals": "^3.0.4"
   },
   "scripts": {
-    "start:local": "REACT_APP_API_BASE_URL=http://localhost:3000 react-scripts start",
+    "start:local": "REACT_APP_API_BASE_URL=http://localhost:4002 react-scripts start",
+    "start:vercel": "REACT_APP_API_BASE_URL=https://kitchen-app-backend-two.vercel.app react-scripts start",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
