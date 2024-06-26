@@ -28,7 +28,7 @@ export default function SignUpForm() {
         setError(null); // clear previous errors
 
         try {
-            const response = await fetch('https://kitchen-app-backend-two.vercel.app/user/register', {
+            const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/user/register`, {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
