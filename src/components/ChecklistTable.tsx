@@ -1,9 +1,15 @@
 import { useState } from "react";
+import { useEffect } from "react";
 import { ChecklistObject } from "../utils/interfaces";
 import { CheckSquare } from "react-bootstrap-icons";
 import { CheckedButton } from "./CheckedButton";
 
 export function ChecklistTable() {
+  const [items, setItems] = useState<Array<ChecklistObject>>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+
   //will run function to get checklist items, then will set the state
   const checklistItems: Array<ChecklistObject> = [
     { id: 1, item_name: "Dishwashing tabs", quantity: 10, purchased: false, category_id: 3, user_id: 1 },
@@ -13,7 +19,27 @@ export function ChecklistTable() {
     { id: 5, item_name: "Detergent", quantity: 30, purchased: false, category_id: 3, user_id: 1 }
   ];
 
-  const [items, setItems] = useState<Array<ChecklistObject>>(checklistItems);
+  //create a fetch that gets the items from the backend
+  useEffect(() => {
+    const fetchChecklistItems = async () => {
+      try {
+        const response = await fetch('https://kitchen-app-backend-two.vercel.app/checklist');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setItems(data);
+      } catch (error:any) { //is this the right thing to do? 
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchChecklistItems();
+  }, []);
+
+  // const [items, setItems] = useState<Array<ChecklistObject>>(checklistItems);
 
   const checkItem = () => {
     //checks off an item in the backend
