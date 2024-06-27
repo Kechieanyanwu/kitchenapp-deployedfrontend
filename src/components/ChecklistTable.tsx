@@ -10,26 +10,34 @@ export function ChecklistTable() {
   const [error, setError] = useState<string | null>(null);
 
 
-  //will run function to get checklist items, then will set the state
-  const checklistItems: Array<ChecklistObject> = [
-    { id: 1, item_name: "Dishwashing tabs", quantity: 10, purchased: false, category_id: 3, user_id: 1 },
-    { id: 2, item_name: "Water bottle", quantity: 13, purchased: false, category_id: 3, user_id: 1 },
-    { id: 3, item_name: "Ipad", quantity: 1, purchased: false, category_id: 3, user_id: 1 },
-    { id: 4, item_name: "Deloitte", quantity: 3, purchased: false, category_id: 3, user_id: 1 },
-    { id: 5, item_name: "Detergent", quantity: 30, purchased: false, category_id: 3, user_id: 1 }
-  ];
+  // //will run function to get checklist items, then will set the state
+  // const checklistItems: Array<ChecklistObject> = [
+  //   { id: 1, item_name: "Dishwashing tabs", quantity: 10, purchased: false, category_id: 3, user_id: 1 },
+  //   { id: 2, item_name: "Water bottle", quantity: 13, purchased: false, category_id: 3, user_id: 1 },
+  //   { id: 3, item_name: "Ipad", quantity: 1, purchased: false, category_id: 3, user_id: 1 },
+  //   { id: 4, item_name: "Deloitte", quantity: 3, purchased: false, category_id: 3, user_id: 1 },
+  //   { id: 5, item_name: "Detergent", quantity: 30, purchased: false, category_id: 3, user_id: 1 }
+  // ];
 
   //create a fetch that gets the items from the backend
   useEffect(() => {
     const fetchChecklistItems = async () => {
       try {
-        const response = await fetch('https://kitchen-app-backend-two.vercel.app/checklist');
+        const authToken = localStorage.getItem('auth_token');
+        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/checklist`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `${authToken}`
+          },
+          credentials: 'include' // Set to 'same-origin' or 'include' as needed
+        });
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
         setItems(data);
-      } catch (error:any) { //is this the right thing to do? 
+      } catch (error:any) { //is this right?
         setError(error.message);
       } finally {
         setLoading(false);
