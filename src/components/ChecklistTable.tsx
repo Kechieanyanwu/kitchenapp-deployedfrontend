@@ -1,19 +1,53 @@
 import { useState } from "react";
+import { useEffect } from "react";
 import { ChecklistObject } from "../utils/interfaces";
 import { CheckSquare } from "react-bootstrap-icons";
 import { CheckedButton } from "./CheckedButton";
 
 export function ChecklistTable() {
-  //will run function to get checklist items, then will set the state
-  const checklistItems: Array<ChecklistObject> = [
-    { id: 1, item_name: "Dishwashing tabs", quantity: 10, purchased: false, category_id: 3, user_id: 1 },
-    { id: 2, item_name: "Water bottle", quantity: 13, purchased: false, category_id: 3, user_id: 1 },
-    { id: 3, item_name: "Ipad", quantity: 1, purchased: false, category_id: 3, user_id: 1 },
-    { id: 4, item_name: "Deloitte", quantity: 3, purchased: false, category_id: 3, user_id: 1 },
-    { id: 5, item_name: "Detergent", quantity: 30, purchased: false, category_id: 3, user_id: 1 }
-  ];
+  const [items, setItems] = useState<Array<ChecklistObject>>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const [items, setItems] = useState<Array<ChecklistObject>>(checklistItems);
+
+  // //will run function to get checklist items, then will set the state
+  // const checklistItems: Array<ChecklistObject> = [
+  //   { id: 1, item_name: "Dishwashing tabs", quantity: 10, purchased: false, category_id: 3, user_id: 1 },
+  //   { id: 2, item_name: "Water bottle", quantity: 13, purchased: false, category_id: 3, user_id: 1 },
+  //   { id: 3, item_name: "Ipad", quantity: 1, purchased: false, category_id: 3, user_id: 1 },
+  //   { id: 4, item_name: "Deloitte", quantity: 3, purchased: false, category_id: 3, user_id: 1 },
+  //   { id: 5, item_name: "Detergent", quantity: 30, purchased: false, category_id: 3, user_id: 1 }
+  // ];
+
+  //create a fetch that gets the items from the backend
+  useEffect(() => {
+    const fetchChecklistItems = async () => {
+      try {
+        const authToken = localStorage.getItem('auth_token');
+        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/checklist`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `${authToken}`
+          },
+          credentials: 'include' // Set to 'same-origin' or 'include' as needed
+        });
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setItems(data);
+      } catch (error:any) { //is this right?
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchChecklistItems();
+  }, []);
+
+  // const [items, setItems] = useState<Array<ChecklistObject>>(checklistItems);
 
   const checkItem = () => {
     //checks off an item in the backend
