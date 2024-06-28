@@ -36,7 +36,7 @@ export default function InventoryTable() {
       } catch (error:any) { //is this right?
         setError(error.message);
       } finally {
-        setLoading(false);
+        setLoading(false); //might be able to use this for making the effect remain the same, e.g. if setloading is true / false. Hmm
       }
     };
 
