@@ -30,11 +30,20 @@ export function ChecklistTable() {
             'Content-Type': 'application/json',
             'Authorization': `${authToken}`
           },
-          credentials: 'include' // Set to 'same-origin' or 'include' as needed
+          credentials: 'include' 
         });
+
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          const errorText = await response.text();
+          throw new Error(`Network response was not ok: ${errorText}`);
         }
+
+        const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+          const errorText = await response.text();
+          throw new Error(`Expected JSON, got ${contentType}: ${errorText}`);
+        }
+
         const data = await response.json();
         setItems(data);
       } catch (error:any) { //is this right?

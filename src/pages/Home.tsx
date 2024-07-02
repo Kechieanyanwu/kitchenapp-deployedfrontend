@@ -7,18 +7,26 @@ import NavBar from "../components/NavBar";
 import { useEffect, useState } from "react";
 
 function ItemCard({ itemName, subtitle }: ItemCardProps) {
-    //will use item name to get itemNumber. Let the card manage it's state. Can lift up if necessary
     const [itemNumber, setItemNumber] = useState<number | null>(null);
 
     useEffect(() => {
         async function fetchCount() {
             try {
-                const response = await fetch(`${process.env.REACT_APP_API_URL}/${itemName}`);
+                const authToken = localStorage.getItem('auth_token');
+                const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/${itemName}/count`,{
+                    method: 'GET',
+                    headers: {
+                      'Content-Type': 'application/json',
+                      'Authorization': `${authToken}`
+                    },
+                    credentials: 'include'
+                  });
+
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
-                const data = await response.json();
-                setItemNumber(data.count); //TO MODIFY backend AND GET AN ENDPOINT RETURNING THE COUNT OF ITEMS
+                const { count } = await response.json();
+                setItemNumber(count);
             } catch (error) {
                 console.error("Error fetching count:", error);
                 setItemNumber(null);
