@@ -23,7 +23,6 @@ export interface TableHeaderProps {
 export interface ItemCardProps {
   itemName: string;
   subtitle: string;
-  itemNumber: number;
 }
 
 export interface PageHeaderProps {
