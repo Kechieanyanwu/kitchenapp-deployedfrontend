@@ -1,16 +1,10 @@
-import PageHeader from "../components/PageHeader";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
-import AddItemButton from "../components/AddItemButton";
 
 
-export default function AddItem() {
-    return <div>
-        <PageHeader title={"Checklist"} subtitle={"Create a Checklist so you don't miss a thing!"} />
-        <div className="curved-section">
-            <h1 className="add-item-header">Add Item</h1>
-            <div className="new-item-details">
+export default function NewItemForm() {
+    return <div className="new-item-details">
                 <Form.Group>
                     <Form.Label>Item Name</Form.Label><br></br>
                     <Form.Control placeholder="Enter item name" />
@@ -33,7 +27,4 @@ export default function AddItem() {
                     <option value="3">Bakery</option>
                 </Form.Select>
             </div>
-            <AddItemButton />
-        </div>
-    </div>;
 }

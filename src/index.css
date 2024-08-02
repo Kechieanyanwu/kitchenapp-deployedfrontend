@@ -398,3 +398,15 @@ thead {
   border-top-right-radius: 10px;
 }
 
+
+/****************
+*
+* ADD ITEM FORMATTING
+*
+*****************/
+
+.add-item-header {
+  font-size: 24px;
+  margin: 15px 0 0; /* Top: 15px; Rest: 0px */
+  font-weight: 500;
+}
